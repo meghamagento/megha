@@ -1,0 +1,30 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <title>Payment</title>
+        <!--
+		demo
+		<css src="Training_Payment::css/css.css"/>
+		<script src="Training_Payment::js/js.js"/>
+		<css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+		<script src="path/file.js" defer="defer"/>
+		<link src="http://url.com" src_type="url"/>
+		<remove src="path/remove/file.css"/>
+
+		-->
+    </head>
+
+    <body>
+
+
+        <referenceContainer name="sidebar.main">
+            <block class="Training\Payment\Block\Index\Sidebar" name="payment_index_sidebar" before="-" template="Training_Payment::payment_index_sidebar.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Training\Payment\Block\Index\Index" name="payment_index_index" template="Training_Payment::payment_index_index.phtml"/>
+        </referenceContainer>
+
+
+    </body>
+</page>
