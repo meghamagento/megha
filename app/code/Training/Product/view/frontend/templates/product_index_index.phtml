@@ -1,1 +1,6 @@
-Demo Page
+<?php
+$id = 1; //Product id
+$productStockById = $block->getStockItem($id);
+echo $productStockById->getData('qty').'<br>';
+echo $productStockById->getData('is_in_stock').'<br>';
+	?>
