@@ -1,1 +1,7 @@
-Demo Page
+<?php
+//Remove all special characters from a string with magento 2 
+ $originalString = "Test1$23?45&789^1";
+ $replaceSymbols =  str_split( \Magento\Framework\Search\Adapter\Mysql\Query\Builder\Match::SPECIAL_CHARACTERS, 1);
+ $string = str_replace($replaceSymbols, '', $originalString);
+ echo $string;
+ ?>
