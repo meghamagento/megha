@@ -1,1 +1,70 @@
-Demo Page
+<?php 
+//get order data by order id programmatically 
+$orderId = '1';
+$order = $block->getOrderById($orderId);
+// Get Order Information
+echo $order->getEntityId() . '<br>';
+echo $order->getIncrementId() . '<br>';
+echo $order->getState() . '<br>';
+echo $order->getStatus() . '<br>';
+echo $order->getStoreId() . '<br>';
+echo $order->getGrandTotal() . '<br>';
+echo $order->getSubtotal() . '<br>';
+echo $order->getTotalQtyOrdered() . '<br>';
+echo $order->getOrderCurrencyCode() . '<br>';
+ 
+// Get Customer Information from the Order
+echo $order->getCustomerId() . '<br>';
+echo $order->getCustomerEmail() . '<br>';
+echo $order->getCustomerFirstname() . '<br>';
+echo $order->getCustomerLastname() . '<br>';
+ 
+// Get Order Items
+$orderItems = $order->getAllItems();
+foreach ($orderItems as $item) {
+    //var_dump($item->getData());
+ 
+    echo $item->getItemId() . '<br>';
+    echo $item->getOrderId() . '<br>';
+    echo $item->getStoreId() . '<br>';
+    echo $item->getProductId() . '<br>';
+    print_r($item->getProductOptions()) . '<br>';
+    echo $item->getSku() . '<br>';
+    echo $item->getName() . '<br>';
+    echo $item->getQtyOrdered() . '<br>';
+    echo $item->getPrice() . '<br>';
+}
+ 
+// Get Order Payment
+$payment = $order->getPayment();
+//var_dump($payment->getData());
+echo $payment->getMethod() . '<br>'; // payment method code
+echo $payment->getAmountPaid() . '<br>';
+echo $payment->getAmountOrdered() . '<br>';
+echo $payment->getAdditionalInformation()['method_title'] . '<br>';
+ 
+// Get Billing Information
+$billingAddress = $order->getBillingAddress();
+//var_dump($billingAddress->getData());
+echo $billingAddress->getFirstname() . '<br>';
+echo $billingAddress->getLastname() . '<br>';
+echo $billingAddress->getEmail() . '<br>';
+echo $billingAddress->getTelephone() . '<br>';
+print_r($billingAddress->getStreet()) . '<br>';
+echo $billingAddress->getCity() . '<br>';
+echo $billingAddress->getRegion() . '<br>';
+echo $billingAddress->getCountryId() . '<br>';
+ 
+// Get Shipping Information
+$shippingAddress = $order->getShippingAddress();
+//var_dump($shippingAddress->getData());
+ 
+echo $shippingAddress->getFirstname() . '<br>';
+echo $shippingAddress->getLastname() . '<br>';
+echo $shippingAddress->getEmail() . '<br>';
+echo $shippingAddress->getTelephone() . '<br>';
+print_r($shippingAddress->getStreet()) . '<br>';
+echo $shippingAddress->getCity() . '<br>';
+echo $shippingAddress->getRegion() . '<br>';
+echo $shippingAddress->getCountryId() . '<br>';
+?>

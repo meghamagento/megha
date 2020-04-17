@@ -5,16 +5,27 @@ namespace Training\Order\Block\Index;
 
 class Index extends \Magento\Framework\View\Element\Template {
 
-    public function __construct(\Magento\Catalog\Block\Product\Context $context, array $data = []) {
-
-        parent::__construct($context, $data);
-
-    }
-
-
-    protected function _prepareLayout()
+    /**
+     * @var \Magento\Sales\Model\OrderRepository
+     */
+    protected $orderRepository;
+ 
+    /**
+     * @var \Magento\Framework\Api\SearchCriteriaBuilder
+     */
+ 
+    public function __construct(
+        \Magento\Sales\Model\OrderRepository $orderRepository,
+        \Magento\Backend\Block\Template\Context $context,
+        array $data = []
+    )
     {
-        return parent::_prepareLayout();
+        $this->orderRepository = $orderRepository;
+        parent::__construct($context, $data);
     }
-
+    
+    public function getOrderById($id) {
+        return $this->orderRepository->get($id);
+    }
 }
+?>
