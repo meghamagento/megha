@@ -1,1 +1,11 @@
-Demo Page
+<?php
+// get customer data by customer email 
+$customerEmail = 'roni_cost@example.com';
+$customer = $block->getCustomerByEmail($customerEmail);
+//echo '<pre>';print_r($customer->__toArray());
+$var = $customer->__toArray();
+echo $var['addresses'][0]['street'][0];
+echo $customer->getFirstname();
+echo $customer->getEmail();
+echo $customer->getLastname();
+
