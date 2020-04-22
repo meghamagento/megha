@@ -8,4 +8,10 @@ echo $var['addresses'][0]['street'][0];
 echo $customer->getFirstname();
 echo $customer->getEmail();
 echo $customer->getLastname();
+?>
 
+<?php
+//check customer is authenticated
+$data = $block->getCustomerLogIn();
+echo $data;
+?>
